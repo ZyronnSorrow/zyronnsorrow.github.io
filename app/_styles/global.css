@@ -27,7 +27,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Elements that should only be shown in a desktop view should be hidden by default (mobile-first). */
+/* Hide the desktop content and show the mobile content by default (mobile-first) */
 .desktop-only {
   display: none;
 }
@@ -36,14 +36,14 @@ body {
   display: block;
 }
 
-/* Elements that should only be shown in a mobile view should be hidden when the screen size is desktop.
- * 768px is Tailwind md breakpoint. */
+/* Styles when the screen width is at least 768px (Tailwind md breakpoint) */
 @media (min-width: 768px) {
+  /* Show the desktop content and hide the mobile content */
   .desktop-only {
     display: block;
   }
 
   .mobile-only {
-    display: hidden;
+    display: none;
   }
 }
