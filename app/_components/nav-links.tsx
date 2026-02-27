@@ -23,7 +23,9 @@ export default function NavLinks({ onLinkClicked }: NavLinksProps) {
                 <Link
                     key={page.path}
                     href={page.path}
-                    className={clsx({ 'text-black': pathname == page.path })}
+                    className={clsx("mx-4",
+                        { 'text-black': pathname == page.path }
+                    )}
                     onClick={handleClick}
                 >
                     {page.name}
