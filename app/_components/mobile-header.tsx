@@ -17,9 +17,9 @@ export default function MobileHeader() {
     };
 
     return (
-        <div className="mobile-only">
+        <div className="mobile-only sticky top-0 z-50">
             <button onClick={handleClick}>X</button>
-            <div className={clsx("absolute z-40", { "hidden": !isOpen })}>
+            <div className={clsx("", { "hidden": !isOpen })}>
                 <NavLinks onLinkClicked={handleLinkClicked} />
             </div>
         </div>

@@ -12,7 +12,7 @@ export default function AboutPage() {
             </p>
             <div className="my-4 md:my-8" />
             <h2 className="my-2 text-2xl font-bold">Core Competencies</h2>
-            <div className="grid grid-cols-1 min-w-0 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2">
                 {aboutSkills.map((skillCategory) => (
                     <div key={skillCategory.category} className="my-2">
                         <h3 className="text-xl font-bold">{skillCategory.category}</h3>
