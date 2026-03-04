@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/_styles/global.css";
 import MobileHeader from "@/app/_components/mobile-header";
 import DesktopHeader from "@/app/_components/desktop-header";
+import ThemeWrapper from "@/app/_components/theme-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,17 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex flex-col h-screen w-full items-center">
-          <div className="flex flex-col h-screen w-full md:w-10/12">
-            <MobileHeader />
-            <DesktopHeader />
-            {children}
+        <ThemeWrapper
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex flex-col h-screen w-full items-center">
+            <div className="flex flex-col h-screen w-full md:w-10/12">
+              <MobileHeader />
+              <DesktopHeader />
+              {children}
+            </div>
           </div>
-        </div>
+        </ThemeWrapper>
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
-@import "tailwindcss/preflight.css";
-@import "tailwindcss/theme.css";
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css";
 
 :root {
@@ -27,6 +29,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer base {
+  h1 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-extrabold);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+  }
+}
+
 @utility btn {
   @apply bg-red-800 hover:bg-red-900 text-white m-4 py-2 px-4 rounded;
 }
@@ -49,5 +68,19 @@ body {
 
   .mobile-only {
     display: none;
+  }
+
+  @layer base {
+    h1 {
+      font-size: var(--text-4xl);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    h3 {
+      font-size: var(--text-xl);
+    }
   }
 }
