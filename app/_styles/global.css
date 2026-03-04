@@ -9,18 +9,16 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -44,10 +42,23 @@ body {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-bold);
   }
+
+  a {
+    text-decoration: underline;
+    color: var(--color-red-500);
+  }
 }
 
 @utility btn {
   @apply bg-red-800 hover:bg-red-900 text-white m-4 py-2 px-4 rounded;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.nav-link {
+  text-decoration: none;
 }
 
 /* Hide the desktop content and show the mobile content by default (mobile-first) */
