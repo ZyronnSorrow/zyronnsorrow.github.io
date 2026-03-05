@@ -18,7 +18,7 @@ export default function NavLinks({ onLinkClicked }: NavLinksProps) {
     };
 
     return (
-        <nav>
+        <nav className="flex max-md:flex-col">
             {pages.map((page) => (
                 <Link
                     key={page.path}

@@ -3,10 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+    onToggleClicked?: () => void;
+}
+
+export default function ThemeToggle({ onToggleClicked}: ThemeToggleProps) {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const initialThemeSet = useRef(false);
+
+    const handleClick = () => {
+        setTheme(theme === "dark" ? "light" : "dark");
+        onToggleClicked?.();
+    };
 
     useEffect(() => {
         const t = setTimeout(() => {
@@ -25,7 +34,7 @@ export default function ThemeToggle() {
     }
 
     return (
-        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        <button onClick={handleClick}>
             {theme === "dark" ? "Light" : "Dark"} Mode
         </button>
     );
